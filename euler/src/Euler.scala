@@ -4,6 +4,17 @@ import scala.annotation
 
 object Euler {
 
+  /** Solution to problem 21
+    */
+  object AmicableNumbers {
+    def getProperDivisors(n: Int): Iterable[Int] =
+      (1 to n / 2).filter(n % _ == 0)
+    def isAmicable(n: Int): Boolean = {
+      val m = getProperDivisors(n).sum
+      m != n && getProperDivisors(m).sum == n
+    }
+  }
+
   /** Solution to problem 11
     */
   object MaxGridProduct {

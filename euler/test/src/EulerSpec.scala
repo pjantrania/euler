@@ -2,6 +2,18 @@ import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should
 import euler.Euler.NumberLetterCounts._
 import euler.Euler.MaxGridProduct._
+import euler.Euler.AmicableNumbers._
+
+class AmicableNumbersSpec extends AnyFlatSpec with should.Matchers {
+  "getProperDivisors" should "list n's divisors < n" in {
+    getProperDivisors(220) should contain allElementsOf (Vector(1, 2, 4, 5, 10,
+        11, 20, 22, 44, 55, 110))
+  }
+  
+  "isAmicable" should "identify amicable number" in {
+    isAmicable(220) should be(true)
+  }
+}
 
 class NumberLetterCountsSpec extends AnyFlatSpec with should.Matchers {
   "getDigits" should "return list of decimal digits in a number in little-endian order" in {
