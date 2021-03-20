@@ -1,0 +1,11 @@
+*.class
+*.log
+.scalafmt.conf
+out/
+**/.bloop
+.metals/
+.ammonite/
+.vscode/
+.coursier/
+.DS_Store/
+*.worksheet.sc
