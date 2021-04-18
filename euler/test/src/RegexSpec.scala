@@ -43,6 +43,5 @@ class RegexSpec extends AnyFlatSpec with should.Matchers {
   it should "match the next expression given non-matching character" in {
     val t = KleeneStar(Character('a', Empty), Character('b', Success))
     t.process('b') should be(Success)
-
   }
 }

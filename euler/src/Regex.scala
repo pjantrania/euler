@@ -2,10 +2,6 @@ package regex
 
 sealed trait State {
   def process(in: Char): State
-  protected def nextState(n: State) = n match {
-    case pks: PartialKleeneStar => pks.resolve(this)
-    case _                      => n
-  }
 }
 
 object State {
@@ -29,11 +25,11 @@ case object Success extends TerminalState
 case object Empty extends TerminalState
 
 case class Character(c: Char, next: State) extends State {
-  def process(in: Char): State = if (in == c) nextState(next) else Failure
+  def process(in: Char): State = if (in == c) next else Failure
 }
 
 case class Wildcard(next: State) extends State {
-  def process(in: Char): State = nextState(next)
+  def process(in: Char): State = next
 }
 
 case class KleeneStar(inner: State, next: State) extends State {
